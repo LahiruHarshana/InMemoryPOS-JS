@@ -80,19 +80,19 @@ $("#iUpdateBtn").click(() => {
 function updateItemTable() {
     $tblItem.empty();
 
-    Customers.forEach((item) => {
-        $tblCustomer.append(`<tr><td>${item.name}</td><td>${item.id}</td><td>${item.price}</td><td>${item.Qty}</td></tr>`);
+    Items.forEach((item) => { // Use Items array, not Customers
+        $tblItem.append(`<tr><td>${item.id}</td><td>${item.name}</td><td>${item.price}</td><td>${item.Qty}</td></tr>`); // Corrected table structure
     });
 
     $tblItem.find("tr").click(function () {
         const row = $(this);
-        const name = row.find("td:eq(0)").text();
-        const id = row.find("td:eq(1)").text();
+        const id = row.find("td:eq(0)").text(); // Changed to get item ID
+        const name = row.find("td:eq(1)").text(); // Changed to get item name
         const price = row.find("td:eq(2)").text();
         const qty = row.find("td:eq(3)").text();
 
-        $iIdTxt.val(name);
-        $iNameTxt.val(id);
+        $iIdTxt.val(id); // Updated to set the correct values
+        $iNameTxt.val(name);
         $iPrice.val(price);
         $iQty.val(qty);
     });
@@ -118,14 +118,14 @@ $("#iDeleteBtn").click(() => {
 });
 
 $("#iSearchBtn").click(function () {
-    const searchValue = $("#iSearchTxt").val();
+    const searchValue = $("#iSearchTxt").val(); // Changed to use the item ID field for searching
 
     if (searchValue.trim() === "") {
         alert("Please enter a valid Item ID to search.");
         return;
     }
 
-    const item = Items.find((c) => i.id === searchValue);
+    const item = Items.find((i) => i.id === searchValue);
 
     if (item) {
         $iNameTxt.val(item.name);
@@ -133,6 +133,6 @@ $("#iSearchBtn").click(function () {
         $iPrice.val(item.price);
         $iQty.val(item.Qty);
     } else {
-        alert("Customer not found.");
+        alert("Item not found.");
     }
 });
