@@ -117,11 +117,12 @@ $("#cDeleteBtn").click(() => {
     }
 });
 
-$("#cUpdateBtn").click(() => {
+$("#cSearchBtn").click(() => {
     const cIdValue = $cIdTxt.val();
 
     for (let i = 0; i < Customers.length; i++) {
         if (Customers[i].id === cIdValue) {
+            $cNameTxt
             break;
         }
     }
