@@ -91,7 +91,8 @@ $("#cUpdateBtn").click(function () {
         if (Customers[i].id===cIdValue){
             Customers.[i].id
             Customers.[i].name
-            Customers.[i].id
+            Customers.[i].address
+            Customers.[i].address
         }
     }
 
