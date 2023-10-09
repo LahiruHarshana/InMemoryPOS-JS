@@ -127,12 +127,12 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
                     <span class="input-group-text" id="IIName">: Item Name</span>
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="Iprice">Item Price :</span>
-                    <input type="text" class="form-control" placeholder="Price"  id="iPrice" aria-label="Username" aria-describedby="Iprice">
+                    <span class="input-group-text" id="IPrice">Item Price :</span>
+                    <input type="text" class="form-control" placeholder="Price"  id="i-Price" aria-label="Username" aria-describedby="IPrice">
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Quantity" aria-label="Recipient's username" aria-describedby="Iqty">
+                    <input type="text" class="form-control" id="i-qty" placeholder="Quantity" aria-label="Recipient's username" aria-describedby="Iqty">
                     <span class="input-group-text" id="Iqty">: Item Quantity</span>
                 </div>
 
@@ -141,9 +141,11 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
 
 
                 <div class="btn-group mt-5 mb-5" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary">Save</button>
-                    <button type="button" class="btn btn-outline-primary">Update</button>
-                    <button type="button" class="btn btn-outline-primary">Delete</button>
+                    <button id="iSaveBtn" type="button" class="btn btn-outline-primary">Save</button>
+                    <button id="iUpdateBtn" type="button" class="btn btn-outline-primary">Update</button>
+                    <button id="iDeleteBtn" type="button" class="btn btn-outline-primary">Delete</button>
+                    <button id="iclearBtn" type="button" class="btn btn-outline-primary">Clear All</button>
+
                 </div>
 
 
@@ -158,25 +160,7 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
                         <th scope="col">Salary</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    <tbody id="itemTbl">
                     </tbody>
                 </table>
 
