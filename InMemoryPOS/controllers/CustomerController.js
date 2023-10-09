@@ -88,11 +88,12 @@ $("#cUpdateBtn").click(function () {
     const cAddressValue = $("#cAddressTxt").val();
     const cSalaryValue = $("#cSalaryText").val();
     for (let i = 0; i < Customers.length; i++) {
-        if (Customers[i].id===cIdValue){
-            Customers.[i].id=cIdValue;
-            Customers.[i].name
-            Customers.[i].address
-            Customers.[i].salary
+        if (Customers[i].id === cIdValue) {
+            Customers[i].id = cIdValue;
+            Customers[i].name = cNameValue;
+            Customers[i].address = cAddressValue;
+            Customers[i].salary = cSalaryValue;
+            break;
         }
     }
 
