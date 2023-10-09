@@ -31,6 +31,13 @@ $("#orderNav").click(function (){
 });
 
 
+var $tblCustomer = $("#tblCustomer");
+var $cIdTxt = $("#cIdTxt");
+var $cNameTxt = $("#cNameTxt");
+var $cAddressTxt = $("#cAddressTxt");
+var $cSalaryText = $("#cSalaryText");
+
+
 $("#cSavebtn").click(() => {
     const customer = {
         id: $cIdTxt.val(),
