@@ -124,7 +124,7 @@ $("#cSearchBtn").click(() => {
         if (Customers[i].id === cIdValue) {
             $cNameTxt.val(Customers[i].name);
             $cIdTxt.val(Customers[i].id);
-            $cAddressTxt=Customers[i].address;
+            $cAddressTxt.val(Customers[i].address);
             $cSalaryText=Customers[i].salary;
             break;
         }
