@@ -105,4 +105,15 @@ $("#clearBtn").click(() => {
     $cSalaryText.val("");
 });
 
-$("")
+$("cDeleteBtn").click(()=>{
+    const cIdValue = $cIdTxt.val();
+    const cNameValue = $cNameTxt.val();
+    const cAddressValue = $cAddressTxt.val();
+    const cSalaryValue = $cSalaryText.val();
+
+    for (let i = 0; i < Customers.length; i++) {
+        if (Customers[i].id === cIdValue) {
+
+        }
+    }
+});
