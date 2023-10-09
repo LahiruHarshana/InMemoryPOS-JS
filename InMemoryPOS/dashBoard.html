@@ -99,7 +99,7 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
 </section>
 
 <!--itemForm-->
-<section id="itemForm" style="width: 100%; height:99vh;position:absolute; top:10vh;" ; >
+<section id="itemForm" style="width: 100%; height:99vh;position:absolute; top:10vh;" >
 
     <section class="container-fluid justify-content-center">
         <section class="row justify-content-center">
@@ -110,8 +110,8 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
 
                 <div class="container-fluid">
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2 mb-5 mt-5" type="search"  style="background: transparent;border: 1px solid #3dd5f3; color: white;" placeholder="Item Code" aria-label="Search">
-                        <button class="btn btn-outline-success mt-5 mb-5"   type="submit">Search</button>
+                        <input class="form-control me-2 mb-5 mt-5" id="iSearchTxt" type="search"  style="background: transparent;border: 1px solid #3dd5f3; color: white;" placeholder="Item Code" aria-label="Search">
+                        <button class="btn btn-outline-success mt-5 mb-5" id="iSearchBtn" type="button">Search</button>
                     </form>
                 </div>
 
@@ -119,7 +119,7 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="Icode">Item Code :</span>
-                    <input class="form-control" placeholder="Item Code" aria-label="Username" aria-describedby="Icode">
+                    <input class="form-control" id="iID" placeholder="Item Code" aria-label="Username" aria-describedby="Icode">
                 </div>
 
                 <div class="input-group mb-3">
