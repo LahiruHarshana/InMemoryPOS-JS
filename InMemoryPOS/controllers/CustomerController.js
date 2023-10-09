@@ -31,70 +31,69 @@ $("#orderNav").click(function (){
 });
 
 
-$("#cSavebtn").click(function () {
-    $("#tblCustomer").empty();
-
-    var customer={
-
-        id:$("#cIdTxt").val(),
-        name:$("#cNameTxt").val(),
-        address:$("#cAddressTxt").val(),
-        salary:$("#cSalaryText").val()
-    }
+$("#cSavebtn").click(() => {
+    const customer = {
+        id: $cIdTxt.val(),
+        name: $cNameTxt.val(),
+        address: $cAddressTxt.val(),
+        salary: $cSalaryText.val(),
+    };
 
     Customers.push(customer);
-
-    for (let i = 0; i < Customers.length; i++) {
-        $("#tblCustomer").append("<tr><td>"+Customers[i].name+"</td><td>"+Customers[i].id+"</td><td>"+Customers[i].address+"</td><td>"+Customers[i].salary+"</td></tr>");
-    }
-
-    $("#tblCustomer tr").click(function() {
-        var row = $(this);
-        var name = row.find("td:eq(0)").text();
-        var id = row.find("td:eq(1)").text();
-        var address = row.find("td:eq(2)").text();
-        var salary = row.find("td:eq(3)").text();
-
-        $("#cNameTxt").val(name);
-        $("#cIdTxt").val(id);
-        $("#cAddressTxt").val(address);
-        $("#cSalaryText").val(salary);
-    });
-
-
-
+    updateCustomerTable();
 });
 
-$("#tblCustomer").on("dblclick", "tr", function() {
-    var row = $(this);
-    row.remove();
-    for (let i = 0; i < Customers.length; i++) {
-        Customers.pop();
-    }
+$tblCustomer.on("dblclick", "tr", function () {
+    const index = $(this).index();
+    Customers.splice(index, 1);
+    updateCustomerTable();
 });
 
+$("#cUpdateBtn").click(() => {
+    const cIdValue = $cIdTxt.val();
+    const cNameValue = $cNameTxt.val();
+    const cAddressValue = $cAddressTxt.val();
+    const cSalaryValue = $cSalaryText.val();
 
-$("#clearBtn").click(function (){
-    $("#cNameTxt").val("");
-    $("#cIdTxt").val("");
-    $("#cAddressTxt").val("");
-    $("#cSalaryText").val("");
-});
-
-
-$("#cUpdateBtn").click(function () {
-    const cIdValue = $("#cIdTxt").val();
-    const cNameValue = $("#cNameTxt").val();
-    const cAddressValue = $("#cAddressTxt").val();
-    const cSalaryValue = $("#cSalaryText").val();
     for (let i = 0; i < Customers.length; i++) {
         if (Customers[i].id === cIdValue) {
-            Customers[i].id = cIdValue;
-            Customers[i].name = cNameValue;
-            Customers[i].address = cAddressValue;
-            Customers[i].salary = cSalaryValue;
+            Customers[i] = {
+                id: cIdValue,
+                name: cNameValue,
+                address: cAddressValue,
+                salary: cSalaryValue,
+            };
             break;
         }
     }
 
+    updateCustomerTable();
+});
+
+function updateCustomerTable() {
+    $tblCustomer.empty();
+
+    Customers.forEach((customer) => {
+        $tblCustomer.append(`<tr><td>${customer.name}</td><td>${customer.id}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`);
+    });
+
+    $tblCustomer.find("tr").click(function () {
+        const row = $(this);
+        const name = row.find("td:eq(0)").text();
+        const id = row.find("td:eq(1)").text();
+        const address = row.find("td:eq(2)").text();
+        const salary = row.find("td:eq(3)").text();
+
+        $cNameTxt.val(name);
+        $cIdTxt.val(id);
+        $cAddressTxt.val(address);
+        $cSalaryText.val(salary);
+    });
+}
+
+$("#clearBtn").click(() => {
+    $cNameTxt.val("");
+    $cIdTxt.val("");
+    $cAddressTxt.val("");
+    $cSalaryText.val("");
 });
