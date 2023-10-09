@@ -104,3 +104,5 @@ $("#clearBtn").click(() => {
     $cAddressTxt.val("");
     $cSalaryText.val("");
 });
+
+$("")
