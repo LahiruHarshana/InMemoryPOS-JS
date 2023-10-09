@@ -48,6 +48,7 @@ $("#cSavebtn").click(() => {
 
     Customers.push(customer);
     updateCustomerTable();
+    // hi
 });
 
 $tblCustomer.on("dblclick", "tr", function () {
