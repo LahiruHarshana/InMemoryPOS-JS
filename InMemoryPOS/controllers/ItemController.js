@@ -1,4 +1,4 @@
-var Customers =[];
+var Items =[];
 
 var customerFormVar =document.querySelector("#customerForm");
 var itemFormVar =document.querySelector("#itemForm");
@@ -31,108 +31,107 @@ $("#orderNav").click(function (){
 });
 
 
-var $tblCustomer = $("#tblCustomer");
-var $cIdTxt = $("#cIdTxt");
-var $cNameTxt = $("#cNameTxt");
-var $cAddressTxt = $("#cAddressTxt");
-var $cSalaryText = $("#cSalaryText");
+var $tblItem = $("#itemTbl");
+var $iIdTxt = $("#iID");
+var $iNameTxt = $("#iName");
+var $iPrice = $("#i-Price");
+var $iQty = $("#i-qty");
 
 
-$("#cSavebtn").click(() => {
-    const customer = {
-        id: $cIdTxt.val(),
-        name: $cNameTxt.val(),
-        address: $cAddressTxt.val(),
-        salary: $cSalaryText.val(),
+$("#iSaveBtn").click(() => {
+    const item = {
+        id: $iIdTxt.val(),
+        name: $iNameTxt.val(),
+        price: $iPrice.val(),
+        Qty: $iQty.val(),
     };
 
-    Customers.push(customer);
-    updateCustomerTable();
-    // hi
+    Items.push(item);
+    updateItemTable();
 });
 
-$tblCustomer.on("dblclick", "tr", function () {
+$tblItem.on("dblclick", "tr", function () {
     const index = $(this).index();
-    Customers.splice(index, 1);
-    updateCustomerTable();
+    Items.splice(index, 1);
+    updateItemTable();
 });
 
-$("#cUpdateBtn").click(() => {
-    const cIdValue = $cIdTxt.val();
-    const cNameValue = $cNameTxt.val();
-    const cAddressValue = $cAddressTxt.val();
-    const cSalaryValue = $cSalaryText.val();
+$("#iUpdateBtn").click(() => {
+    const iIdValue = $iIdTxt.val();
+    const iNameValue = $iNameTxt.val();
+    const iPriceValue = $iPrice.val();
+    const iQtyValue = $iQty.val();
 
-    for (let i = 0; i < Customers.length; i++) {
-        if (Customers[i].id === cIdValue) {
-            Customers[i] = {
-                id: cIdValue,
-                name: cNameValue,
-                address: cAddressValue,
-                salary: cSalaryValue,
+    for (let i = 0; i < Items.length; i++) {
+        if (Items[i].id === iIdValue) {
+            Items[i] = {
+                id: iIdValue,
+                name: iNameValue,
+                price: iPriceValue,
+                Qty: iQtyValue,
             };
             break;
         }
     }
 
-    updateCustomerTable();
+    updateItemTable();
 });
 
-function updateCustomerTable() {
-    $tblCustomer.empty();
+function updateItemTable() {
+    $tblItem.empty();
 
-    Customers.forEach((customer) => {
-        $tblCustomer.append(`<tr><td>${customer.name}</td><td>${customer.id}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`);
+    Customers.forEach((item) => {
+        $tblCustomer.append(`<tr><td>${item.name}</td><td>${item.id}</td><td>${item.price}</td><td>${item.Qty}</td></tr>`);
     });
 
-    $tblCustomer.find("tr").click(function () {
+    $tblItem.find("tr").click(function () {
         const row = $(this);
         const name = row.find("td:eq(0)").text();
         const id = row.find("td:eq(1)").text();
-        const address = row.find("td:eq(2)").text();
-        const salary = row.find("td:eq(3)").text();
+        const price = row.find("td:eq(2)").text();
+        const qty = row.find("td:eq(3)").text();
 
-        $cNameTxt.val(name);
-        $cIdTxt.val(id);
-        $cAddressTxt.val(address);
-        $cSalaryText.val(salary);
+        $iIdTxt.val(name);
+        $iNameTxt.val(id);
+        $iPrice.val(price);
+        $iQty.val(qty);
     });
 }
 
-$("#clearBtn").click(() => {
-    $cNameTxt.val("");
-    $cIdTxt.val("");
-    $cAddressTxt.val("");
-    $cSalaryText.val("");
+$("#iclearBtn").click(() => {
+    $iNameTxt.val("");
+    $iIdTxt.val("");
+    $iPrice.val("");
+    $iQty.val("");
 });
 
-$("#cDeleteBtn").click(() => {
-    const cIdValue = $cIdTxt.val();
+$("#iDeleteBtn").click(() => {
+    const iIdValue = $iIdTxt.val();
 
-    for (let i = 0; i < Customers.length; i++) {
-        if (Customers[i].id === cIdValue) {
-            Customers.splice(i, 1);
-            updateCustomerTable();
+    for (let i = 0; i < Items.length; i++) {
+        if (Items[i].id === iIdValue) {
+            Items.splice(i, 1);
+            updateItemTable();
             break;
         }
     }
 });
 
-$("#cSearchBtn").click(function () {
-    const searchValue = $("#cSearchTxt").val();
+$("#iSearchBtn").click(function () {
+    const searchValue = $("#iSearchTxt").val();
 
     if (searchValue.trim() === "") {
-        alert("Please enter a valid Customer ID to search.");
+        alert("Please enter a valid Item ID to search.");
         return;
     }
 
-    const customer = Customers.find((c) => c.id === searchValue);
+    const item = Items.find((c) => i.id === searchValue);
 
-    if (customer) {
-        $cNameTxt.val(customer.name);
-        $cIdTxt.val(customer.id);
-        $cAddressTxt.val(customer.address);
-        $cSalaryText.val(customer.salary);
+    if (item) {
+        $iNameTxt.val(item.name);
+        $iIdTxt.val(item.id);
+        $iPrice.val(item.price);
+        $iQty.val(item.Qty);
     } else {
         alert("Customer not found.");
     }
