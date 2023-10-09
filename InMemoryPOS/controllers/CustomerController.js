@@ -117,16 +117,22 @@ $("#cDeleteBtn").click(() => {
     }
 });
 
-$("#cSearchBtn").click(() => {
-    const cIdValue = $cIdTxt.val();
+$("#cSearchBtn").click(function () {
+    const searchValue = $("#cSearchTxt").val();
 
-    for (let i = 0; i < Customers.length; i++) {
-        if (Customers[i].id === cIdValue) {
-            $cNameTxt.val(Customers[i].name);
-            $cIdTxt.val(Customers[i].id);
-            $cAddressTxt.val(Customers[i].address);
-            $cSalaryText.val(Customers[i].salary);
-            break;
-        }
+    if (searchValue.trim() === "") {
+        alert("Please enter a valid Customer ID to search.");
+        return;
+    }
+
+    const customer = Customers.find((c) => c.id === searchValue);
+
+    if (customer) {
+        $cNameTxt.val(customer.name);
+        $cIdTxt.val(customer.id);
+        $cAddressTxt.val(customer.address);
+        $cSalaryText.val(customer.salary);
+    } else {
+        alert("Customer not found.");
     }
 });
