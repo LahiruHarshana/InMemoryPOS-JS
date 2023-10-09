@@ -105,7 +105,7 @@ $("#clearBtn").click(() => {
     $cSalaryText.val("");
 });
 
-$("cDeleteBtn").click(()=>{
+$("#cDeleteBtn").click(() => {
     const cIdValue = $cIdTxt.val();
 
     for (let i = 0; i < Customers.length; i++) {
@@ -114,6 +114,5 @@ $("cDeleteBtn").click(()=>{
             updateCustomerTable();
             break;
         }
-
     }
 });
