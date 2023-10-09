@@ -74,8 +74,6 @@ $("#tblCustomer").on("dblclick", "tr", function() {
 });
 
 
-
-
 $("#clearBtn").click(function (){
     $("#cNameTxt").val("");
     $("#cIdTxt").val("");
