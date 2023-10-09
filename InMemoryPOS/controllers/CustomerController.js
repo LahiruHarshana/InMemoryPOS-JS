@@ -82,4 +82,12 @@ $("#clearBtn").click(function (){
 });
 
 
-$("#")
+$("#cUpdateBtn").click(function () {
+    const cIdValue = $("#cIdTxt").val();
+    for (let i = 0; i < Customers.length; i++) {
+        if (Customers[i].id===cIdValue){
+            console.log("hi")
+        }
+    }
+
+});
