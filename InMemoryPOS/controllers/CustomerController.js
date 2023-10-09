@@ -123,7 +123,7 @@ $("#cSearchBtn").click(() => {
     for (let i = 0; i < Customers.length; i++) {
         if (Customers[i].id === cIdValue) {
             $cNameTxt.val(Customers[i].name);
-            $cIdTxt=Customers[i].id;
+            $cIdTxt.val(Customers[i].id);
             $cAddressTxt=Customers[i].address;
             $cSalaryText=Customers[i].salary;
             break;
