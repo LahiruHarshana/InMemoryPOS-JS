@@ -125,7 +125,7 @@ $("#cSearchBtn").click(() => {
             $cNameTxt=Customers[i].name;
             $cIdTxt=Customers[i].id;
             $cAddressTxt=Customers[i].address
-            $cSalaryText
+            $cSalaryText=Customers[i].salary;
             break;
         }
     }
