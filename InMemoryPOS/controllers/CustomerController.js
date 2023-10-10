@@ -139,4 +139,3 @@ $("#cSearchBtn").click(function () {
 });
 
 export default Customers;
-
