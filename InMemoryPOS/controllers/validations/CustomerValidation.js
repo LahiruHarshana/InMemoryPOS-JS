@@ -3,6 +3,11 @@ const CUS_NAME_REGEX = /^[A-Za-z ]{5,}$/;
 const CUS_ADDRESS_REGEX = /^[A-Za-z0-9 ]{8,}$/;
 const CUS_SALARY_REGEX = /^[0-9]{2,}([.][0-9]{2})?$/;
 
+var validationId;
+var validationName;
+var validationAddress;
+var validationSalary;
+
 
 $("#cSavebtn").attr('disabled',true);
 
@@ -14,6 +19,8 @@ $("#cIdTxt").keyup(function (e) {
     } else {
         let res = CUS_ID_REGEX.test(value);
         if (res) {
+             validationId =1;
+            setBtn();
             $("#cIdTxt").css('border', '2px solid green');
         } else {
             $("#cIdTxt").css('border', '2px solid red');
@@ -28,6 +35,8 @@ $("#cNameTxt").keyup(function (e) {
     } else {
         let res = CUS_NAME_REGEX.test(value);
         if (res) {
+            validationName=1;
+            setBtn();
             $("#cNameTxt").css('border', '2px solid green');
         } else {
             $("#cNameTxt").css('border', '2px solid red');
@@ -42,6 +51,8 @@ $("#cAddressTxt").keyup(function (e) {
     } else {
         let res = CUS_ADDRESS_REGEX.test(value);
         if (res) {
+            validationAddress=1;
+            setBtn();
             $("#cAddressTxt").css('border', '2px solid green');
         } else {
             $("#cAddressTxt").css('border', '2px solid red');
@@ -56,8 +67,17 @@ $("#cSalaryText").keyup(function (e) {
     } else {
         let res = CUS_SALARY_REGEX.test(value);
         if (res) {
+            validationSalary=1;
+            setBtn();
             $("#cSalaryText").css('border', '2px solid green');
         } else {
             $("#cSalaryText").css('border', '2px solid red');
         }
     }});
+
+
+function setBtn() {
+    if (validationId==1 && validationName==1 && validationAddress==1 && validationSalary==1){
+        $("#cSavebtn").attr('disabled',false);
+    }
+}
