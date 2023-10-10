@@ -137,3 +137,6 @@ $("#cSearchBtn").click(function () {
         alert("Customer not found.");
     }
 });
+
+export default Customers;
+

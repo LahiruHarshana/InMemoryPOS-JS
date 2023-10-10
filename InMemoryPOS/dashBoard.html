@@ -207,8 +207,9 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="col-form-label col-form-label-sm">Customer ID</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Select Customer</option></select>
+                                    <select class="form-select" id="selectCustomerId" aria-label="Default select example">
+                                        <option value="I002">Item 2</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -250,8 +251,9 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="col-form-label col-form-label-sm">Item ID</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Select Item</option></select>                            </div>
+                                    <select id="oSelectItem" class="form-select" aria-label="Default select example">
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="col-6">
@@ -336,7 +338,7 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
 
                         <div class="row d-flex justify-content-end">
                             <div class="col-3">
-                                <button type="button" class="btn btn-outline-primary">Save</button>
+                                <button type="button" id="oSaveBtn" class="btn btn-outline-primary">Save</button>
                             </div>
                         </div>
                     </form>
@@ -370,10 +372,12 @@ box-shadow: inset 10px 13px 110px -39px rgba(61,213,243,1);">
 </section>
 
 
-<script src="assets/bootstrap/js/bootstrap.js"></script>
+<script  src="assets/bootstrap/js/bootstrap.js"></script>
 <script src="assets/bootstrap/js/jquery-3.7.1.min.js"></script>
-<script src="controllers/CustomerController.js"></script>
-<script src="controllers/ItemController.js"></script>
+<script type="module" src="controllers/CustomerController.js"></script>
+<script type="module" src="controllers/ItemController.js"></script>
+<script type="module" src="controllers/PurchaseOrderController.js"></script>
+
 
 
 </body>
