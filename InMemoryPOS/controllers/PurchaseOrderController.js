@@ -33,6 +33,14 @@ $("#orderNav").click(function (){
 });
 
 
+$("#selectCustomerId").change(function () {
+    const selectedValue = $(this).val();
+});
+
+$("#oSelectItem").change(function () {
+    const selectedValue = $(this).val();
+});
+
 
     $("#oSaveBtn").click(function () {
         console.log(Customers);
