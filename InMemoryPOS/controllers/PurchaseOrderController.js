@@ -1,15 +1,16 @@
 import Customers from './CustomerController.js';
 
+$(document).ready(function () {
     const selectElement = $("#selectCustomerId");
 
-    for (let i = 0; i <Customers.length; i++) {
-        const customer = Customers[i];
+    // Populate the dropdown with customer IDs
+    for (let i = 0; i < Customers.length; i++) {
         const option = $("<option></option>");
-        option.val("hello");
-        option.text("hello");
+        option.val(Customers[i].id);
+        option.text(Customers[i].id);
         selectElement.append(option);
     }
-
     $("#oSaveBtn").click(function () {
         console.log(Customers);
     });
+});
