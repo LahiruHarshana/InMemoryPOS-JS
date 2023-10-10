@@ -35,6 +35,22 @@ $("#orderNav").click(function (){
 
 $("#selectCustomerId").change(function () {
     const selectedValue = $(this).val();
+
+    if (selectedValue.trim() === "") {
+        alert("Please enter a valid Customer ID to search.");
+        return;
+    }
+
+    const customer = Customers.find((c) => c.id === selectedValue);
+
+    if (customer) {
+        $("").val(customer.name);
+        $cIdTxt.val(customer.id);
+        $cAddressTxt.val(customer.address);
+        $cSalaryText.val(customer.salary);
+    } else {
+        alert("Customer not found.");
+    }
 });
 
 $("#oSelectItem").change(function () {
