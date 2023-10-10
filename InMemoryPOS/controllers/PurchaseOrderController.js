@@ -1,60 +1,65 @@
 import Customers from './CustomerController.js';
 import Items from "./ItemController.js";
 
-$("#orderNav").click(function () {
-    const customerFormVar = document.querySelector("#customerForm");
-    const itemFormVar = document.querySelector("#itemForm");
-    const orderrFormVar = document.querySelector("#orderForm");
+$(document).ready(function () {
+    $("#orderNav").click(function () {
+        const customerFormVar = document.querySelector("#customerForm");
+        const itemFormVar = document.querySelector("#itemForm");
+        const orderrFormVar = document.querySelector("#orderForm");
 
-    const selectElement = $("#selectCustomerId");
-    selectElement.children().remove();
+        const selectElement = $("#selectCustomerId");
+        selectElement.children().remove();
 
-    for (let i = 0; i < Customers.length; i++) {
-        const option = $("<option></option>");
-        option.val(Customers[i].id);
-        option.text(Customers[i].id);
-        selectElement.append(option);
-    }
+        for (let i = 0; i < Customers.length; i++) {
+            const option = $("<option></option>");
+            option.val(Customers[i].id);
+            option.text(Customers[i].id);
+            selectElement.append(option);
+        }
 
-    const selectItem = $("#oSelectItem");
-    selectItem.children().remove();
+        const selectItem = $("#oSelectItem");
+        selectItem.children().remove();
 
-    for (let i = 0; i < Items.length; i++) {
-        const option = $("<option></option>");
-        option.val(Items[i].id);
-        option.text(Items[i].id);
-        selectItem.append(option);
-    }
+        for (let i = 0; i < Items.length; i++) {
+            const option = $("<option></option>");
+            option.val(Items[i].id);
+            option.text(Items[i].id);
+            selectItem.append(option);
+        }
 
-    customerFormVar.style.display = "none";
-    itemFormVar.style.display = "none";
-    orderrFormVar.style.display = "inline";
-});
-$("#selectCustomerId").change(function () {
-    const selectedValue = $(this).val();
+        customerFormVar.style.display = "none";
+        itemFormVar.style.display = "none";
+        orderrFormVar.style.display = "inline";
 
-    if (selectedValue.trim() === "") {
-        alert("Please enter a valid Customer ID to search.");
-        return;
-    }
+        $("#selectCustomerId").val("");
+        $("#oSelectItem").val("");
 
-    const customer = Customers.find((c) => c.id === selectedValue);
-    console.log(customer);
+    });
 
-    if (customer) {
-        $("#oCName").val(customer.name);
-        $("#oCAddress").val(customer.address);
-        $("#oCSalary").val(customer.salary);
-    } else {
-        alert("Customer not found.");
-    }
-});
+    $("#selectCustomerId").change(function () {
+        const selectedValue = $(this).val();
+        for (let i = 0; i < Customers.length; i++) {
+            if (selectedValue === Customers[i].id) {
+                $("#oCName").val(Customers[i].name);
+                $("#oCAddress").val(Customers[i].address);
+                $("#oCSalary").val(Customers[i].salary);
+            }
+        }
+    });
 
-$("#oSelectItem").change(function () {
-    const selectedValue = $(this).val();
-});
-
+    $("#oSelectItem").change(function () {
+        const selectedValue = $(this).val();
+        for (let i = 0; i < Items.length; i++) {
+            if (selectedValue === Items[i].id) {
+                $("#itemID").val(Items[i].id);
+                $("#iNameO").val(Items[i].name);
+                $("#iOPrice").val(Items[i].price);
+                $("#iOQty").val(Items[i].Qty);
+            }
+        }
+    });
 
     $("#oSaveBtn").click(function () {
         console.log(Customers);
     });
+});
