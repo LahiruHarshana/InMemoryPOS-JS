@@ -10,6 +10,7 @@ var validationSalary;
 
 
 $("#cSavebtn").attr('disabled',true);
+$("#cUpdateBtn").attr('disabled',true);
 
 $("#cIdTxt").keyup(function (e) {
     let value = $("#cIdTxt").val();
@@ -79,5 +80,6 @@ $("#cSalaryText").keyup(function (e) {
 function setBtn() {
     if (validationId==1 && validationName==1 && validationAddress==1 && validationSalary==1){
         $("#cSavebtn").attr('disabled',false);
+        $("#cUpdateBtn").attr('disabled',false);
     }
 }
