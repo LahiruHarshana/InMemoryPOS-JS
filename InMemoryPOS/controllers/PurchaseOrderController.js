@@ -1,7 +1,6 @@
 import Customers from './CustomerController.js';
+import Items from "./ItemController.js";
 
-
-    var customers = Customers;
 
 $("#orderNav").click(function (){
 
@@ -16,13 +15,21 @@ $("#orderNav").click(function (){
         option.text(Customers[i].id);
         selectElement.append(option);
     }
+
+
+    const selectItem = $("#oSelectItem");
+
+    selectItem.children().remove();
+
+    for (let i = 0; i <Items.length; i++) {
+        const option = $("<option></option>");
+        option.val(Items[i].id);
+        option.text(Items[i].id);
+        selectItem.append(option);
+    }
     customerFormVar.style.display="none";
     itemFormVar.style.display="none";
     orderrFormVar.style.display="inline";
-
-
-
-
 });
 
 

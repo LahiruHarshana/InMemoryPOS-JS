@@ -136,3 +136,5 @@ $("#iSearchBtn").click(function () {
         alert("Item not found.");
     }
 });
+
+export default Items;
