@@ -96,7 +96,8 @@ $(document).ready(function () {
     $("#orderCashTxt").keyup(function (e) {
         var total =parseInt($("#totalTxt").text());
         var cash =parseInt($("#orderCashTxt").text());
-
+        var balance =  total-cash;
+        $("#orderBalanceTxt").text(balance);
     });
 
 
