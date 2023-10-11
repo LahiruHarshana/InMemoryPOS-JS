@@ -39,7 +39,7 @@ $("#oId").keyup(function (e) {
         }
     }});
 
-$("#date").keyup(function (e) {
+$("#date").on('input',function (e) {
     let value = $("#date").val();
     if (value.length == 0) {
         $("#addToItemBtn").attr('disabled',true);
@@ -259,8 +259,9 @@ $("#orderBalanceTxt").keyup(function (e) {
     }});
 
 function setBtn() {
-    if (validation1==1 && validation2==1 && validation3==1 && vvalidation4==1 && validation5==1 && validation6==1 && validation7==1 && validation8==1 && validation9==1 && validation10==1 && validation11==1){
-        $("#addToItemBtn").attr('disabled',false);
-        $("#oSaveBtn").attr('disabled',false);
+    if (validation1 == 1 && validation2 == 1 && validation3 == 1 && validation4 == 1 && validation5 == 1 && validation6 == 1 && validation7 == 1 && validation8 == 1 && validation9 == 1 && validation10 == 1 && validation11 == 1) {
+        $("#addToItemBtn").attr('disabled', false);
+        $("#oSaveBtn").attr('disabled', false);
     }
 }
+
