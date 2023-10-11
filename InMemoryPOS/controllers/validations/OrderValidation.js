@@ -450,7 +450,7 @@ export function validated10() {
         } else {
             let res = numbersOnlyRegex.test(value);
             if (res) {
-                if ($("#iOQty").val() >= $("#oqty").val()) {
+                if (parseInt($("#iOQty").val()) >= parseInt($("#oqty").val())) {
                     validation10 = 1;
                     setBtn();
                     $("#oqty").css('border', '2px solid green');

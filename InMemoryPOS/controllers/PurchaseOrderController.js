@@ -115,7 +115,7 @@ $(document).ready(function () {
     function loadTotal() {
         var fullTotal=0;
         for (let i = 0; i < Orders.length; i++) {
-            fullTotal=parseInt(Orders[i].total);
+            fullTotal+=parseInt(Orders[i].total);
         }
         $("#totalTxt").text(fullTotal);
         $("#OrderSubTotal").text(fullTotal);
