@@ -139,3 +139,51 @@ $("#iOPrice").keyup(function (e) {
             $("#iOPrice").css('border', '2px solid red');
         }
     }});
+
+$("#iOQty").keyup(function (e) {
+    let value = $("#iOQty").val();
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled',true);
+        $("#oSaveBtn").attr('disabled',true);
+        $("#iOQty").css('border', '1px solid #ced4da');
+    } else {
+        let res = numbersOnlyRegex.test(value);
+        if (res) {
+            setBtn();
+            $("#iOQty").css('border', '2px solid green');
+        } else {
+            $("#iOQty").css('border', '2px solid red');
+        }
+    }});
+
+$("#oqty").keyup(function (e) {
+    let value = $("#oqty").val();
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled',true);
+        $("#oSaveBtn").attr('disabled',true);
+        $("#oqty").css('border', '1px solid #ced4da');
+    } else {
+        let res = numbersOnlyRegex.test(value);
+        if (res) {
+            setBtn();
+            $("#oqty").css('border', '2px solid green');
+        } else {
+            $("#oqty").css('border', '2px solid red');
+        }
+    }});
+
+$("#ItemNameOrder").keyup(function (e) {
+    let value = $("#ItemNameOrder").val();
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled',true);
+        $("#oSaveBtn").attr('disabled',true);
+        $("#ItemNameOrder").css('border', '1px solid #ced4da');
+    } else {
+        let res = CUS_NAME_REGEX.test(value);
+        if (res) {
+            setBtn();
+            $("#ItemNameOrder").css('border', '2px solid green');
+        } else {
+            $("#ItemNameOrder").css('border', '2px solid red');
+        }
+    }});
