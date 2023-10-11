@@ -104,9 +104,12 @@ $(document).ready(function () {
 
     $("#orderDiscountTxt").keyup(function (e) {
         var total =parseInt($("#totalTxt").text());
-        var cash =parseInt($("#orderCashTxt").val());
-        var balance =  cash-total;
-        $("#orderBalanceTxt").val(balance);
+        var discount =parseInt($("#orderDiscountTxt").val());
+        if (discount===0){
+            $("#OrderSubTotal").text(total);
+        }
+        var balance = total-(total*(discount/100));
+        $("#OrderSubTotal").text(balance);
     });
 
 
