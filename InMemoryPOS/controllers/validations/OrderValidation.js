@@ -122,3 +122,20 @@ $("#itemID").keyup(function (e) {
             $("#itemID").css('border', '2px solid red');
         }
     }});
+
+
+$("#itemID").keyup(function (e) {
+    let value = $("#itemID").val();
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled',true);
+        $("#oSaveBtn").attr('disabled',true);
+        $("#itemID").css('border', '1px solid #ced4da');
+    } else {
+        let res = ITEM_ID_REGEX.test(value);
+        if (res) {
+            setBtn();
+            $("#itemID").css('border', '2px solid green');
+        } else {
+            $("#itemID").css('border', '2px solid red');
+        }
+    }});
