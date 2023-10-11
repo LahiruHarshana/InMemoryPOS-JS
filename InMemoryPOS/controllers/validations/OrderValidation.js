@@ -187,27 +187,34 @@ var validation11;
         }
     });
 
-    $("#oqty").keyup(function (e) {
-        let value = $("#oqty").val();
-        if (value.length == 0) {
-            $("#addToItemBtn").attr('disabled', true);
-            $("#oSaveBtn").attr('disabled', true);
-            $("#oqty").css('border', '1px solid #ced4da');
-        } else {
-            let res = numbersOnlyRegex.test(value);
-            if (res) {
-                if ($("#iOQty").val() >= $("#oqty").val()) {
-                    validation10 = 1;
-                    setBtn();
-                    $("#oqty").css('border', '2px solid green');
-                } else {
-                    $("#oqty").css('border', '2px solid red');
-                }
+$("#oqty").keyup(function (e) {
+    let value = $("#oqty").val();
+
+    // Reset border and validation
+    $("#oqty").css('border', '1px solid #ced4da');
+    validation10 = 0;
+
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled', true);
+        $("#oSaveBtn").attr('disabled', true);
+    } else {
+        let res = numbersOnlyRegex.test(value);
+        if (res) {
+            let oQty = parseInt(value);
+            let iQty = parseInt($("#iOQty").val());
+
+            if (!isNaN(iQty) && oQty <= iQty) {
+                validation10 = 1;
+                setBtn();
+                $("#oqty").css('border', '2px solid green');
             } else {
                 $("#oqty").css('border', '2px solid red');
             }
+        } else {
+            $("#oqty").css('border', '2px solid red');
         }
-    });
+    }
+});
 
     $("#ItemNameOrder").keyup(function (e) {
         let value = $("#ItemNameOrder").val();
