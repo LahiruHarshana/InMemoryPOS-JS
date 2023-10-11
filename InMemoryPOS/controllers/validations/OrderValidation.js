@@ -10,6 +10,17 @@ const ITEM_ID_REGEX = /^(I00-)[0-9]{3}$/;
 $("#addToItemBtn").attr('disabled',true);
 $("#oSaveBtn").attr('disabled',true);
 
+var validation1;
+var validation2;
+var validation3;
+var validation4;
+var validation5;
+var validation6;
+var validation7;
+var validation8;
+var validation9;
+var validation10;
+var validation11;
 
 $("#oId").keyup(function (e) {
     let value = $("#oId").val();
@@ -22,6 +33,7 @@ $("#oId").keyup(function (e) {
         if (res) {
             setBtn();
             $("#oId").css('border', '2px solid green');
+            validation1=1;
         } else {
             $("#oId").css('border', '2px solid red');
         }
@@ -36,6 +48,7 @@ $("#date").keyup(function (e) {
     } else {
         let res = ORDER_DATE_REGEX.test(value);
         if (res) {
+            validation2=1;
             setBtn();
             $("#date").css('border', '2px solid green');
         } else {
@@ -52,6 +65,7 @@ $("#oCName").keyup(function (e) {
     } else {
         let res = CUS_NAME_REGEX.test(value);
         if (res) {
+            validation3=1;
             setBtn();
             $("#oCName").css('border', '2px solid green');
         } else {
@@ -68,6 +82,7 @@ $("#oCAddress").keyup(function (e) {
     } else {
         let res = CUS_NAME_REGEX.test(value);
         if (res) {
+            validation4=1;
             setBtn();
             $("#oCAddress").css('border', '2px solid green');
         } else {
@@ -84,6 +99,7 @@ $("#oCSalary").keyup(function (e) {
     } else {
         let res = CUS_SALARY_REGEX.test(value);
         if (res) {
+            validation5=1;
             setBtn();
             $("#oCSalary").css('border', '2px solid green');
         } else {
@@ -100,6 +116,7 @@ $("#CustomerIDORderForm").keyup(function (e) {
     } else {
         let res = CUS_ID_REGEX.test(value);
         if (res) {
+            validation6=1;
             setBtn();
             $("#CustomerIDORderForm").css('border', '2px solid green');
         } else {
@@ -116,6 +133,7 @@ $("#itemID").keyup(function (e) {
     } else {
         let res = ITEM_ID_REGEX.test(value);
         if (res) {
+            validation7=1;
             setBtn();
             $("#itemID").css('border', '2px solid green');
         } else {
@@ -133,6 +151,7 @@ $("#iOPrice").keyup(function (e) {
     } else {
         let res = CUS_SALARY_REGEX.test(value);
         if (res) {
+            validation8=1;
             setBtn();
             $("#iOPrice").css('border', '2px solid green');
         } else {
@@ -149,6 +168,7 @@ $("#iOQty").keyup(function (e) {
     } else {
         let res = numbersOnlyRegex.test(value);
         if (res) {
+            validation9=1;
             setBtn();
             $("#iOQty").css('border', '2px solid green');
         } else {
@@ -165,6 +185,7 @@ $("#oqty").keyup(function (e) {
     } else {
         let res = numbersOnlyRegex.test(value);
         if (res) {
+            validation10=1;
             setBtn();
             $("#oqty").css('border', '2px solid green');
         } else {
@@ -181,6 +202,7 @@ $("#ItemNameOrder").keyup(function (e) {
     } else {
         let res = CUS_NAME_REGEX.test(value);
         if (res) {
+            validation11=1;
             setBtn();
             $("#ItemNameOrder").css('border', '2px solid green');
         } else {
@@ -235,3 +257,10 @@ $("#orderBalanceTxt").keyup(function (e) {
             $("#orderBalanceTxt").css('border', '2px solid red');
         }
     }});
+
+function setBtn() {
+    if (validation1==1 && validation2==1 && validation3==1 && vvalidation4==1 && validation5==1 && validation6==1 && validation7==1 && validation8==1 && validation9==1 && validation10==1 && validation11==1){
+        $("#addToItemBtn").attr('disabled',false);
+        $("#oSaveBtn").attr('disabled',false);
+    }
+}
