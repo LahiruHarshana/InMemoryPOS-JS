@@ -68,15 +68,7 @@ $(document).ready(function () {
 
     $("#addToItemBtn").click(function () {
 
-        var price=$("#iOPrice").val();
-        var qty=$("#oqty").val();
-        var total = price*qty;
-        $("#totalTxt").text(total);
-        $("#OrderSubTotal").text(total);
 
-    });
-
-    $("#oSaveBtn").click(function () {
         const order = {
             orderID:$("#oId").val(),
             date: $("#date").val(),
@@ -87,6 +79,32 @@ $(document).ready(function () {
             Qty: $("#oqty").val(),
             total: $("#OrderSubTotal").text()
         };
+
+        Orders.push(order);
+        updateOrderTable();
+
+
+        var price=$("#iOPrice").val();
+        var qty=$("#oqty").val();
+        var total = price*qty;
+        $("#totalTxt").text(total);
+        $("#OrderSubTotal").text(total);
+
+    });
+
+    $("#oSaveBtn").click(function () {
+            $("#oId").val("");
+           $("#date").val("");
+             $("#CustomerIDORderForm").val("");
+            $("#itemID").val("");
+            $("#ItemNameOrder").val("");
+            $("#iOPrice").val("");
+            $("#oqty").val("");
+            $("#orderCashTxt").val("");
+            $("#orderDiscountTxt").val("");
+             $("#OrderSubTotal").text("");
+             $("#totalTxt").text("");
+            $("#selectCustomerId").children().remove();
 
         Orders.push(order);
         updateOrderTable();

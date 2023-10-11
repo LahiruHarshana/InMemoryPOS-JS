@@ -185,9 +185,13 @@ $("#oqty").keyup(function (e) {
     } else {
         let res = numbersOnlyRegex.test(value);
         if (res) {
-            validation10=1;
-            setBtn();
-            $("#oqty").css('border', '2px solid green');
+            if ($("#iOQty").val()>=$("#oqty").val()){
+                validation10=1;
+                setBtn();
+                $("#oqty").css('border', '2px solid green');
+            }else{
+                $("#oqty").css('border', '2px solid red');
+            }
         } else {
             $("#oqty").css('border', '2px solid red');
         }
