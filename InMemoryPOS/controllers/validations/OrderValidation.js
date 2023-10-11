@@ -187,3 +187,51 @@ $("#ItemNameOrder").keyup(function (e) {
             $("#ItemNameOrder").css('border', '2px solid red');
         }
     }});
+
+$("#orderCashTxt").keyup(function (e) {
+    let value = $("#orderCashTxt").val();
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled',true);
+        $("#oSaveBtn").attr('disabled',true);
+        $("#orderCashTxt").css('border', '1px solid #ced4da');
+    } else {
+        let res = numbersOnlyRegex.test(value);
+        if (res) {
+            setBtn();
+            $("#orderCashTxt").css('border', '2px solid green');
+        } else {
+            $("#orderCashTxt").css('border', '2px solid red');
+        }
+    }});
+
+$("#orderDiscountTxt").keyup(function (e) {
+    let value = $("#orderDiscountTxt").val();
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled',true);
+        $("#oSaveBtn").attr('disabled',true);
+        $("#orderDiscountTxt").css('border', '1px solid #ced4da');
+    } else {
+        let res = numbersOnlyRegex.test(value);
+        if (res) {
+            setBtn();
+            $("#orderDiscountTxt").css('border', '2px solid green');
+        } else {
+            $("#orderDiscountTxt").css('border', '2px solid red');
+        }
+    }});
+
+$("#orderBalanceTxt").keyup(function (e) {
+    let value = $("#orderBalanceTxt").val();
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled',true);
+        $("#oSaveBtn").attr('disabled',true);
+        $("#orderBalanceTxt").css('border', '1px solid #ced4da');
+    } else {
+        let res = numbersOnlyRegex.test(value);
+        if (res) {
+            setBtn();
+            $("#orderBalanceTxt").css('border', '2px solid green');
+        } else {
+            $("#orderBalanceTxt").css('border', '2px solid red');
+        }
+    }});
