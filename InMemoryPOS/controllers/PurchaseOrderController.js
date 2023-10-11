@@ -50,8 +50,20 @@ $(document).ready(function () {
                 $("#oCAddress").val(Customers[i].address);
                 $("#oCSalary").val(Customers[i].salary);
 
+
             }
         }
+        validated1();
+        validated2();
+        validated3();
+        validated4();
+        validated5();
+        validated6();
+        validated7();
+        validated8();
+        validated9();
+        validated10();
+        validated11();
     });
 
     $("#oSelectItem").change(function () {
@@ -62,12 +74,28 @@ $(document).ready(function () {
                 $("#ItemNameOrder").val(Items[i].name);
                 $("#iOPrice").val(Items[i].price);
                 $("#iOQty").val(Items[i].Qty);
+
             }
         }
+        validated1();
+        validated2();
+        validated3();
+        validated4();
+        validated5();
+        validated6();
+        validated7();
+        validated8();
+        validated9();
+        validated10();
+        validated11();
     });
 
     $("#addToItemBtn").click(function () {
 
+        var fullTotal=0;
+        var price=parseInt($("#iOPrice").val());
+        var qty=parseInt($("#oqty").val());
+        var total = price*qty;
 
         const order = {
             orderID:$("#oId").val(),
@@ -77,18 +105,18 @@ $(document).ready(function () {
             itemName: $("#ItemNameOrder").val(),
             unitPrice: $("#iOPrice").val(),
             Qty: $("#oqty").val(),
-            total: $("#OrderSubTotal").text()
+            total:total
         };
 
         Orders.push(order);
         updateOrderTable();
 
 
-        var price=$("#iOPrice").val();
-        var qty=$("#oqty").val();
-        var total = price*qty;
-        $("#totalTxt").text(total);
-        $("#OrderSubTotal").text(total);
+        for (let i = 0; i < Orders.length; i++) {
+            var fullTotal=parseInt(Orders[i].total);
+        }
+        $("#totalTxt").text(fullTotal);
+        $("#OrderSubTotal").text(fullTotal);
 
     });
 
@@ -108,8 +136,6 @@ $(document).ready(function () {
             $("#selectCustomerId").children().remove();
             $("#oSelectItem").children().remove();
 
-        Orders.push(order);
-        updateOrderTable();
 
     });
 
