@@ -66,6 +66,15 @@ $(document).ready(function () {
         }
     });
 
+    $("#addToItemBtn").click(function () {
+
+        var price=$("#iOPrice").val();
+        var qty=$("#oqty").val();
+        var total = price*qty;
+        $("#totalTxt").text(total);
+
+    });
+
     $("#oSaveBtn").click(function () {
         const order = {
             orderID:$("#oId").val(),
@@ -82,6 +91,8 @@ $(document).ready(function () {
         updateOrderTable();
 
     });
+
+
 
 
 
