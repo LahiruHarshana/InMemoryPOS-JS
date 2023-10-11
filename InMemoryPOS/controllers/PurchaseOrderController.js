@@ -75,7 +75,7 @@ $(document).ready(function () {
             itemName: $("#ItemNameOrder").val(),
             unitPrice: $("#iOPrice").val(),
             Qty: $("#oqty").val(),
-            total: $("#OrderSubTotal").val()
+            total: $("#OrderSubTotal").text()
         };
 
         Orders.push(order);
@@ -91,6 +91,6 @@ function updateOrderTable() {
     $("#tblOrderBody").empty();
 
     Orders.forEach((orders) => {
-        $("#tblOrderBody").append(`<tr><td>${orders.orderID}</td><td>${orders.itemName}</td><td>${orders.unitPrice}</td><td>${orders.Qty}</td><td>${orders.total}</td></tr>`);
+        $("#tblOrderBody").append(`<tr><td>${orders.itemID}</td><td>${orders.itemName}</td><td>${orders.unitPrice}</td><td>${orders.Qty}</td><td>${orders.total}</td></tr>`);
     });
 }
