@@ -105,11 +105,17 @@ $(document).ready(function () {
     $("#orderDiscountTxt").keyup(function (e) {
         var total =parseInt($("#totalTxt").text());
         var discount =parseInt($("#orderDiscountTxt").val());
+
+        if ($("#orderDiscountTxt")=="" ){
+            var discount =0;
+        }
         if (discount===0){
             $("#OrderSubTotal").text(total);
+        }else{
+            var balance = total-(total*(discount/100));
+            $("#OrderSubTotal").text(balance);
         }
-        var balance = total-(total*(discount/100));
-        $("#OrderSubTotal").text(balance);
+
     });
 
 
