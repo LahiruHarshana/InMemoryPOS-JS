@@ -166,10 +166,6 @@ $(document).ready(function () {
         }
 
     });
-
-
-
-
 });
 
 function updateOrderTable() {
