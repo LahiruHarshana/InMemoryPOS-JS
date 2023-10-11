@@ -98,11 +98,27 @@ $("#CustomerIDORderForm").keyup(function (e) {
         $("#oSaveBtn").attr('disabled',true);
         $("#CustomerIDORderForm").css('border', '1px solid #ced4da');
     } else {
-        let res = CUS_SALARY_REGEX.test(value);
+        let res = CUS_ID_REGEX.test(value);
         if (res) {
             setBtn();
             $("#CustomerIDORderForm").css('border', '2px solid green');
         } else {
             $("#CustomerIDORderForm").css('border', '2px solid red');
+        }
+    }});
+
+$("#itemID").keyup(function (e) {
+    let value = $("#itemID").val();
+    if (value.length == 0) {
+        $("#addToItemBtn").attr('disabled',true);
+        $("#oSaveBtn").attr('disabled',true);
+        $("#itemID").css('border', '1px solid #ced4da');
+    } else {
+        let res = ITEM_ID_REGEX.test(value);
+        if (res) {
+            setBtn();
+            $("#itemID").css('border', '2px solid green');
+        } else {
+            $("#itemID").css('border', '2px solid red');
         }
     }});
