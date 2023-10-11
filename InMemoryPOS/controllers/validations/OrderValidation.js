@@ -124,18 +124,18 @@ $("#itemID").keyup(function (e) {
     }});
 
 
-$("#itemID").keyup(function (e) {
-    let value = $("#itemID").val();
+$("#iOPrice").keyup(function (e) {
+    let value = $("#iOPrice").val();
     if (value.length == 0) {
         $("#addToItemBtn").attr('disabled',true);
         $("#oSaveBtn").attr('disabled',true);
-        $("#itemID").css('border', '1px solid #ced4da');
+        $("#iOPrice").css('border', '1px solid #ced4da');
     } else {
-        let res = ITEM_ID_REGEX.test(value);
+        let res = CUS_SALARY_REGEX.test(value);
         if (res) {
             setBtn();
-            $("#itemID").css('border', '2px solid green');
+            $("#iOPrice").css('border', '2px solid green');
         } else {
-            $("#itemID").css('border', '2px solid red');
+            $("#iOPrice").css('border', '2px solid red');
         }
     }});
