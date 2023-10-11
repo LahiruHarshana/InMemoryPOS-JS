@@ -89,29 +89,41 @@ $(document).ready(function () {
     });
 
     $("#addToItemBtn").click(function () {
+        var price = parseInt($("#iOPrice").val());
+        var qty = parseInt($("#oqty").val());
+        var total = price * qty;
 
+        var itemID = $("#itemID").val();
+        var found = false;
 
-        var price=parseInt($("#iOPrice").val());
-        var qty=parseInt($("#oqty").val());
-        var total = price*qty;
+        for (let i = 0; i < Orders.length; i++) {
+            if (Orders[i].itemID == itemID) {
+                let existingQty = parseInt(Orders[i].Qty);
+                existingQty += qty;
+                Orders[i].Qty = existingQty;
+                found = true;
+                break;
+            }
+        }
 
-        const order = {
-            orderID:$("#oId").val(),
-            date: $("#date").val(),
-            customerID: $("#CustomerIDORderForm").val(),
-            itemID: $("#itemID").val(),
-            itemName: $("#ItemNameOrder").val(),
-            unitPrice: $("#iOPrice").val(),
-            Qty: $("#oqty").val(),
-            total:total
-        };
+        if (!found) {
+            const order = {
+                orderID: $("#oId").val(),
+                date: $("#date").val(),
+                customerID: $("#CustomerIDORderForm").val(),
+                itemID: itemID,
+                itemName: $("#ItemNameOrder").val(),
+                unitPrice: $("#iOPrice").val(),
+                Qty: qty,
+                total: total
+            };
 
-        Orders.push(order);
+            Orders.push(order);
+        }
+
         updateOrderTable();
         loadTotal();
-
     });
-
     function loadTotal() {
         var fullTotal=0;
         for (let i = 0; i < Orders.length; i++) {
