@@ -90,7 +90,7 @@ $(document).ready(function () {
 
     $("#addToItemBtn").click(function () {
 
-        var fullTotal=0;
+
         var price=parseInt($("#iOPrice").val());
         var qty=parseInt($("#oqty").val());
         var total = price*qty;
@@ -108,15 +108,20 @@ $(document).ready(function () {
 
         Orders.push(order);
         updateOrderTable();
+        loadTotal();
 
 
+
+    });
+
+    function loadTotal() {
+        var fullTotal=0;
         for (let i = 0; i < Orders.length; i++) {
-            var fullTotal=parseInt(Orders[i].total);
+            fullTotal=parseInt(Orders[i].total);
         }
         $("#totalTxt").text(fullTotal);
         $("#OrderSubTotal").text(fullTotal);
-
-    });
+    }
 
     $("#oSaveBtn").click(function () {
             $("#oId").val("");
