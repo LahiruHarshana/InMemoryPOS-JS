@@ -97,6 +97,7 @@ $(document).ready(function () {
            $("#date").val("");
              $("#CustomerIDORderForm").val("");
             $("#itemID").val("");
+            $("#oCSalary").val("");
             $("#ItemNameOrder").val("");
             $("#iOPrice").val("");
             $("#oqty").val("");
@@ -105,6 +106,7 @@ $(document).ready(function () {
              $("#OrderSubTotal").text("");
              $("#totalTxt").text("");
             $("#selectCustomerId").children().remove();
+            $("#oSelectItem").children().remove();
 
         Orders.push(order);
         updateOrderTable();
