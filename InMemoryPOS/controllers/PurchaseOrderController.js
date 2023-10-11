@@ -1,6 +1,11 @@
 import Customers from './CustomerController.js';
 import Items from "./ItemController.js";
 
+
+
+
+var Orders = [];
+
 $(document).ready(function () {
     $("#orderNav").click(function () {
         const customerFormVar = document.querySelector("#customerForm");
@@ -41,8 +46,10 @@ $(document).ready(function () {
         for (let i = 0; i < Customers.length; i++) {
             if (selectedValue === Customers[i].id) {
                 $("#oCName").val(Customers[i].name);
+                $("#CustomerIDORderForm").val(Customers[i].id);
                 $("#oCAddress").val(Customers[i].address);
                 $("#oCSalary").val(Customers[i].salary);
+
             }
         }
     });
@@ -52,7 +59,7 @@ $(document).ready(function () {
         for (let i = 0; i < Items.length; i++) {
             if (selectedValue === Items[i].id) {
                 $("#itemID").val(Items[i].id);
-                $("#iNameO").val(Items[i].name);
+                $("#ItemNameOrder").val(Items[i].name);
                 $("#iOPrice").val(Items[i].price);
                 $("#iOQty").val(Items[i].Qty);
             }
@@ -60,6 +67,30 @@ $(document).ready(function () {
     });
 
     $("#oSaveBtn").click(function () {
-        console.log(Customers);
+        const order = {
+            orderID:$("#oId").val(),
+            date: $("#date").val(),
+            customerID: $("#CustomerIDORderForm").val(),
+            itemID: $("#itemID").val(),
+            itemName: $("#ItemNameOrder").val(),
+            unitPrice: $("#iOPrice").val(),
+            Qty: $("#oqty").val(),
+            total: $("#OrderSubTotal").val()
+        };
+
+        Orders.push(order);
+        updateOrderTable();
+
     });
+
+
+
 });
+
+function updateOrderTable() {
+    $("#tblOrderBody").empty();
+
+    Orders.forEach((orders) => {
+        $("#tblOrderBody").append(`<tr><td>${orders.orderID}</td><td>${orders.itemName}</td><td>${orders.unitPrice}</td><td>${orders.Qty}</td><td>${orders.total}</td></tr>`);
+    });
+}
