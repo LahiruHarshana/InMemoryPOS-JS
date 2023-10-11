@@ -286,7 +286,7 @@ var validation11;
     }
 
 
-    function validated1() {
+    export function validated1() {
         let value = $("#oId").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -303,7 +303,7 @@ var validation11;
             }
         }
     }
-    function validated2() {
+export function validated2() {
         let value = $("#date").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -320,7 +320,7 @@ var validation11;
             }
         }
     }
-    function validated3() {
+export function validated3() {
         let value = $("#oCName").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -337,7 +337,7 @@ var validation11;
             }
         }
     }
-    function validated4() {
+export function validated4() {
         let value = $("#oCAddress").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -356,7 +356,7 @@ var validation11;
 
     }
 
-    function validated5() {
+export function validated5() {
         let value = $("#oCSalary").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -373,7 +373,7 @@ var validation11;
             }
         }
 }
-    function validated6() {
+export function validated6() {
         let value = $("#CustomerIDORderForm").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -390,7 +390,7 @@ var validation11;
             }
         }
     }
-    function validated7() {
+export function validated7() {
         let value = $("#itemID").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -407,7 +407,7 @@ var validation11;
             }
         }
     }
-    function validated8() {
+export function validated8() {
         let value = $("#iOPrice").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -424,7 +424,7 @@ var validation11;
             }
         }
     }
-    function validated9() {
+export function validated9() {
         let value = $("#iOQty").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -441,7 +441,7 @@ var validation11;
             }
         }
     }
-    function validated10() {
+export function validated10() {
         let value = $("#oqty").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
@@ -462,7 +462,7 @@ var validation11;
             }
         }
     }
-    function validated11() {
+export function validated11() {
         let value = $("#ItemNameOrder").val();
         if (value.length == 0) {
             $("#addToItemBtn").attr('disabled', true);
