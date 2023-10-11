@@ -95,7 +95,7 @@ $(document).ready(function () {
 
 
     $("#orderCashTxt").keyup(function (e) {
-        var total =parseInt($("#totalTxt").text());
+        var total =parseInt($("#OrderSubTotal").text());
         var cash =parseInt($("#orderCashTxt").val());
         var balance =  cash-total;
         $("#orderBalanceTxt").val(balance);
