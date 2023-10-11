@@ -94,10 +94,11 @@ $(document).ready(function () {
 
 
     $("#orderCashTxt").keyup(function (e) {
+        console.log("hello")
         var total =parseInt($("#totalTxt").text());
-        var cash =parseInt($("#orderCashTxt").text());
-        var balance =  total-cash;
-        $("#orderBalanceTxt").text(balance);
+        var cash =parseInt($("#orderCashTxt").val());
+        var balance =  cash-total;
+        $("#orderBalanceTxt").val(balance);
     });
 
 
