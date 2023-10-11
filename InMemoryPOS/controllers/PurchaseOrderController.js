@@ -110,8 +110,6 @@ $(document).ready(function () {
         updateOrderTable();
         loadTotal();
 
-
-
     });
 
     function loadTotal() {
