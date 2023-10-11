@@ -72,6 +72,7 @@ $(document).ready(function () {
         var qty=$("#oqty").val();
         var total = price*qty;
         $("#totalTxt").text(total);
+        $("#OrderSubTotal").text(total);
 
     });
 
@@ -94,7 +95,14 @@ $(document).ready(function () {
 
 
     $("#orderCashTxt").keyup(function (e) {
-        console.log("hello")
+        var total =parseInt($("#totalTxt").text());
+        var cash =parseInt($("#orderCashTxt").val());
+        var balance =  cash-total;
+        $("#orderBalanceTxt").val(balance);
+    });
+
+
+    $("#orderDiscountTxt").keyup(function (e) {
         var total =parseInt($("#totalTxt").text());
         var cash =parseInt($("#orderCashTxt").val());
         var balance =  cash-total;
