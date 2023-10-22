@@ -10,6 +10,7 @@ $(document).ready(function () {
         const customerFormVar = document.querySelector("#customerForm");
         const itemFormVar = document.querySelector("#itemForm");
         const orderrFormVar = document.querySelector("#orderForm");
+        const homeFormVar = document.querySelector("#homeeeeee")
 
         const selectElement = $("#selectCustomerId");
         selectElement.children().remove();
