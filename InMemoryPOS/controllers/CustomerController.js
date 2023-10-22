@@ -5,6 +5,8 @@ var itemFormVar =document.querySelector("#itemForm");
 var orderrFormVar =document.querySelector("#orderForm");
 var homeFormVar = document.querySelector("#homeeeeee");
 
+
+homeFormVar.style.display='inline'
 customerFormVar.style.display='none';
 itemFormVar.style.display='none';
 orderrFormVar.style.display='none';
@@ -12,6 +14,7 @@ orderrFormVar.style.display='none';
 
 
 $("#customerNav").click(function (){
+    homeFormVar.style.display='none'
     customerFormVar.style.display='inline';
     itemFormVar.style.display='none';
     orderrFormVar.style.display='none';
