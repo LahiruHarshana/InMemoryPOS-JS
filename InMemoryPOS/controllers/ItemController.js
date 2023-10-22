@@ -11,6 +11,7 @@ orderrFormVar.style.display='none';
 
 
 $("#customerNav").click(function (){
+    homeFormVar.style.display='none'
     customerFormVar.style.display='inline';
     itemFormVar.style.display='none';
     orderrFormVar.style.display='none';
