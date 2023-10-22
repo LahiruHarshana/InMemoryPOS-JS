@@ -146,6 +146,8 @@ $(document).ready(function () {
             $("#oCName").val("");
             $("#orderCashTxt").val("");
             $("#orderDiscountTxt").val("");
+            $("#tblOrderBody").empty();
+            $("#orderBalanceTxt").val("");
              $("#OrderSubTotal").text("");
              $("#totalTxt").text("");
             $("#selectCustomerId").children().remove();
