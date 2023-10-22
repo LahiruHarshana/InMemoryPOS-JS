@@ -22,6 +22,7 @@ $("#customerNav").click(function (){
 
 
 $("#itemNav").click(function (){
+    homeFormVar.style.display='none'
     customerFormVar.style.display='none';
     itemFormVar.style.display='inline';
     orderrFormVar.style.display='none';
