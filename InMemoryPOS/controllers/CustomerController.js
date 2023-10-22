@@ -12,6 +12,12 @@ itemFormVar.style.display='none';
 orderrFormVar.style.display='none';
 
 
+$("#homeNav").click(function (){
+    homeFormVar.style.display='inline'
+    customerFormVar.style.display='none';
+    itemFormVar.style.display='none';
+    orderrFormVar.style.display='none';
+});
 
 $("#customerNav").click(function (){
     homeFormVar.style.display='none'
