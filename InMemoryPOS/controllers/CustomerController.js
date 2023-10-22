@@ -3,6 +3,7 @@ var Customers =[];
 var customerFormVar =document.querySelector("#customerForm");
 var itemFormVar =document.querySelector("#itemForm");
 var orderrFormVar =document.querySelector("#orderForm");
+var homeFormVar = document.querySelector("#homeeeeee");
 
 customerFormVar.style.display='inline';
 itemFormVar.style.display='none';
